@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mall Customers Clustering</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'clustering/css/style.css' %}">
+</head>
+<body>
+
+
+<header class="top-header">
+    <h2>👥 Customer Segmentation</h2>
+</header>
+
+<div class="container">
+
+  
+    <div class="card">
+        <h2>📊 Mall Customer Segmentation</h2>
+        <p style="text-align:center; margin-top:10px;">
+           Click <strong>Run Clustering</strong> to perform K-Means clustering on customer data to identify different customer segments.
+        </p>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="{% url 'cluster' %}" class="button">Run Clustering</a>
+        </div>
+    </div>
+
+    <div class="cards">
+    <div class="card">
+        <h3>ℹ️ About the Project</h3>
+        <p>This project performs customer segmentation using the Mall Customers dataset from Kaggle.</p>
+        <ul>
+            <li>Uses K-Means clustering algorithm.</li>
+            <li>Groups customers based on Age, Annual Income, and Spending Score.</li>
+            <li>Helps businesses identify spending behavior.</li>
+            <li>Useful for targeted marketing campaigns.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+    <h3>📌 Project Summary</h3>
+    <ul>
+        <li><strong>Total Customers:</strong> 200</li>
+        <li><strong>Number of Clusters:</strong> 4</li>
+        <li><strong>Algorithm:</strong> K-Means Clustering</li>
+    </ul>
+    </div>
+    </div>
+
+    <div class="card">
+        <h3>💡 Quote</h3>
+        <p style="text-align:center; font-style:italic;">
+            "Transforming raw data into business intelligence."
+        </p>
+    </div>
+
+
+</div>
+
+</body>
+</html>

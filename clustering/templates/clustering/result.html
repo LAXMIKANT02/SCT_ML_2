@@ -1,0 +1,83 @@
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clustering Result</title>
+    {% load static %}
+    {% load custom_tags %}
+    <link rel="stylesheet" href="{% static 'clustering/css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="top-header">
+        <h2>👥 Customer Segmentation Result</h2>
+        <p style="text-align:center; margin-top:10px;">
+            The clustering has been successfully performed on the customer data. Below are the details of the clusters.
+        </p>
+    </header>
+    
+    
+
+    <div class="card">
+        <h3>✨ Cluster Centroids ✨</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cluster</th>
+                    <th>Age</th>
+                    <th>Income</th>
+                    <th>Score</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in centroids %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.0|floatformat:2 }}</td>
+                    <td>{{ i.1|floatformat:2 }}</td>
+                    <td>{{ i.2|floatformat:2 }}</td>
+                    <td>{{ counts|get_index:forloop.counter0 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="chart-row">
+        <div class="chart-card">
+            <h3>Scatter Plot</h3>
+            <img src="{% static plot_url %}" alt="Scatter Plot">
+        </div>
+        <div class="chart-card">
+            <h3>Pie Chart</h3>
+            <img src="{% static 'piechart.png' %}" alt="Pie Chart">
+        </div>
+    </div>
+    <div class="cards">
+    <div class="card">
+        <h3>ℹ️ Interpretation</h3>
+        <ul>
+            <li><strong>Cluster 1</strong>: Young customers with low income but high spending.</li>
+            <li><strong>Cluster 2</strong>: Middle-aged average income, average spending.</li>
+            <li><strong>Cluster 3</strong>: High income but low spending.</li>
+            <li><strong>Cluster 4</strong>: High income, high spending (premium customers).</li>
+        </ul>
+    </div>
+    <div class="card">
+        <p style="text-align:center; font-style:italic; color: #ffd369; font-size: 18px;padding-top: auto;">
+            "Data turns into insights. Insights turn into strategy."
+        </p>
+    </div>
+    </div>
+
+    <div style="text-align:center;">
+        <a href="{% url 'home' %}" class="button">⬅️ Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>
