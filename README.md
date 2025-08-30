@@ -32,7 +32,7 @@ To build an interactive, web-based ML dashboard where:
 | Layer               | Technology             |
 |---------------------|------------------------|
 | Backend (Server)    | Django                 |
-| Machine Learning    | scikit-learn           |
+| Machine Learning    | K-means           |
 | Data Manipulation   | Pandas                 |
 | Visualization       | Matplotlib             |
 | Styling / Frontend  | HTML, CSS              |
